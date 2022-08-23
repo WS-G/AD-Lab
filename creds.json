@@ -1,0 +1,29 @@
+{
+    "Users": [
+    
+    {   
+        "username" : "pbimblet",
+        "password" : "Password2019123!",
+        "Groups":"Domain Admin/all admin groups"
+    },
+    
+    {   
+        "username" : "Bob",
+        "password" : "Password1",
+        "Groups" : "Domain users"
+    },
+    
+    {   
+        "username" : "pparker",
+        "password" : "Password2",
+        "Groups" : "Domain users"
+    },
+    
+    {
+        "username" : "sqlservice",
+        "password" : "Mypassword123$",
+        "Groups" : "Domain admin"
+    }
+
+    ]
+}
