@@ -25,5 +25,10 @@
         "Groups" : "Domain admin"
     }
 
+    {
+        "username" : "bdennis",
+        "password" : "Password1",
+        "Groups" : "Domain admin"
+    }
     ]
 }

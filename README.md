@@ -1,6 +1,6 @@
 # AD-Lab
 
-My notes on setting up an active directory lab in Virtualbox for practising pentesting on active directory
+My notes on setting up an active directory lab in Virtualbox for practising pentesting on active directory. This is related to Heath Adam's course: [Practical Ethical Hacking - TCM Academy](https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course)
 
 ## Setup
 
@@ -88,4 +88,25 @@ Download the necessary isos from Microsoft eval center:
     - Find the created GPO and Right-click and select enforced to on & then select `Edit`
     - go to `computer configuration > policies > administrative templates > windows components` and click on  windows defender antivirus and then select "Turn off windows defender" and make that "enabled"
     - Do the same for `Windows Defender Exploit guard` and `Smart Screen` if applicable
-    - 
+
+### Joining machines to domain
+
+1. on the machines, add a network share in `C:\share`
+
+2. Add the DC IP address as DNS server in workstations for name resolution
+    - Go to network adapter settings and change the DNS server to the DC's IP
+    - Repeat for other workstation(s)
+
+3. Join the Domain
+    - Search for "Access work or school" in windows search and select it and click "Connect"
+    - Join the domain you set up (e.g yourdomain.local)
+    - Enter the domain admin's credentials
+    - **Note:** If using virtualbox make sure all the relevant machines are connected to a NATnetwork together. Otherwise you will not be able to access them.
+    - After restart, check the domain account can be signed in to. select the "other user" option at the sign-in ascreen and sign in using a domain account to verify it's working
+
+4. Add a domain user to local admin on both machines
+    - This is for testing an AD attack vector later
+    - choose a standard domain user account to use
+    - Login to workstations as domain admin
+    - Run powershell (as admin) and add the user to local admin group like this: `net localgroup administrators USERNAMEHERE /add`
+
