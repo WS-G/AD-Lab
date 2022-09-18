@@ -1,10 +1,10 @@
 # AD-Lab
 
-My notes on setting up an active directory lab in Virtualbox for practising pentesting on active directory. This is related to Heath Adam's course: [Practical Ethical Hacking - TCM Academy](https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course)
+My notes on setting up an active directory lab in VirtualBox for practising pentesting on active directory. This is related to Heath Adam's course: [Practical Ethical Hacking - TCM Academy](https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course)
 
 ## Setup
 
-Download the necessary isos from Microsoft eval center:
+Download the necessary isos from Microsoft eval centre:
     - windows 10 enterprise x 2
     - Windows Server 2019
 
@@ -109,4 +109,15 @@ Download the necessary isos from Microsoft eval center:
     - choose a standard domain user account to use
     - Login to workstations as domain admin
     - Run powershell (as admin) and add the user to local admin group like this: `net localgroup administrators USERNAMEHERE /add`
+
+5. add attacker machine to network 
+	- to do this in VirtualBox we must go to the kali machine settings > network add network adapter and select the network our domain is on 
+	- Now we must add the DC as as a dns server 
+	- run `sudo vim /etc/resolv.conf` and add the following line: `nameserver <DC mac hine's IP>`
+	- save and quit
+	- then run  `sudo chattr +i /etc/resolv.conf  ` to update 
+	- restart network manager: `sudo /etc/init.d/networking restart`
+	- now you should ping the relevant ip's to see if you get a call-back
+	- **NOTE:** if one or more of the machines is not pinging you may need to edit the firewall rules
+		- advanced firewall settings > inbound rules >   File and Printer Sharing (Echo Request - ICMPv4-In) and enable all rules with this name 
 
