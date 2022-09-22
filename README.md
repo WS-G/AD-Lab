@@ -35,6 +35,12 @@ Download the necessary isos from Microsoft eval centre:
     - continue to hit `Next` until finished
     - Restart machine
 
+7. Set up LDAPS 
+    - Go to server manager
+    - Select "Add roles and Features"
+    - Add the "Active Directory Certificate Services"
+    - select the "Restart if needed" option 
+    
 ### Setting up the Workstations
 
 1. Install the Windows 10 Enterprise ISO into Virtualbox & name them appropriately (e.g WS1 and WS2 etc.)
@@ -45,7 +51,7 @@ Download the necessary isos from Microsoft eval centre:
     - Add a "share" folder to root of `C:\` and make it a share:
         - right-click folder > `properties > Shares`
     - Take a snapshot
-    - Clone the machine and rename pc
+    - Clone the machine and rename pc 
 
 ### Setting up users, groups and policies
 
