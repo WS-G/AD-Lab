@@ -127,3 +127,27 @@ Download the necessary isos from Microsoft eval centre:
 	- **NOTE:** if one or more of the machines is not pinging you may need to edit the firewall rules
 		- advanced firewall settings > inbound rules >   File and Printer Sharing (Echo Request - ICMPv4-In) and enable all rules with this name 
 
+## Pivoting Lab Setup
+
+Notes relating to the Pivoting Lab setup part of the course.
+
+### Add new netork
+
+1. Create a new NAT network in virtualbox that has a different IP address than the one set up for our AD network
+    - go to `file` > `tools` > `Network Manager` > `NAT networks`
+    - right-click and create a new NAT network
+    - change the IP range to be different than the one set up for our AD network
+
+### Add workstations to new network 
+
+Here we want to have one machine only connected to our new network and the other to be connected to both our AD network and the new one
+
+1. Add workstation 1 to new network 
+    - go to workstation settings and click on network tab
+    - go to adapter 2 tab and add our new network
+
+2. Change adapter for workstation 2 to new network
+    - go to adapter settings and click on network tab
+    - change the adapter under adapter 1 tab to our new network (should only be on the new network)
+
+3. Test to make sure it is working by pinging the machines from each other
